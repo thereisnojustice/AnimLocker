@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dl15gc76tok62"]
+
+[ext_resource type="PackedScene" uid="uid://blfr4vw631gwb" path="res://cubewithempty.tscn" id="1_urlh0"]
+[ext_resource type="PackedScene" uid="uid://cmj4wcxgr5l5b" path="res://cube.tscn" id="3_vpscl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hs4bg"]
+sky_top_color = Color(0.682353, 0.843137, 0.960784, 1)
+sky_horizon_color = Color(0.65098, 0.639216, 0.745098, 1)
+ground_bottom_color = Color(0.352941, 0.305882, 0.25098, 1)
+
+[sub_resource type="Sky" id="Sky_0fdgu"]
+sky_material = SubResource("ProceduralSkyMaterial_hs4bg")
+
+[sub_resource type="Environment" id="Environment_oau52"]
+background_mode = 2
+background_color = Color(0.54902, 0.741176, 0.862745, 1)
+sky = SubResource("Sky_0fdgu")
+ambient_light_source = 3
+ambient_light_color = Color(0.415686, 0.654902, 0.803922, 1)
+reflected_light_source = 2
+
+[node name="World" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_oau52")
+
+[node name="cubewithempty" parent="." instance=ExtResource("1_urlh0")]
+other_cube_path = NodePath("../cube")
+
+[node name="cube" parent="." instance=ExtResource("3_vpscl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.40601, 0, -3.15282)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 3, 6.10037)
+current = true

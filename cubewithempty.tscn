@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://blfr4vw631gwb"]
+
+[ext_resource type="PackedScene" uid="uid://cehcxt8ijhj7q" path="res://cubewithempty.blend" id="1_oc4qp"]
+[ext_resource type="Script" path="res://CubeWithEmpty.gd" id="2_u0q78"]
+[ext_resource type="PackedScene" uid="uid://y7gqgsdhmk3a" path="res://AnimLocker.tscn" id="3_006mi"]
+
+[node name="cubewithempty" instance=ExtResource("1_oc4qp")]
+script = ExtResource("2_u0q78")
+
+[node name="Empty_Bounce" type="Node3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.82081, 0, 0)
+
+[node name="AnimLocker" parent="." index="3" instance=ExtResource("3_006mi")]

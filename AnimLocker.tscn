@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://y7gqgsdhmk3a"]
+
+[ext_resource type="Script" path="res://Locker.gd" id="1_am8oo"]
+
+[node name="AnimLocker" type="Node3D"]
+script = ExtResource("1_am8oo")
