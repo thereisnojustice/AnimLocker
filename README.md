@@ -37,3 +37,8 @@ After importing your blend files to Godot, there are additional steps to get thi
   * Use the advanced import, select each animation that needs to be 'grabbed', and specify a file to save the custom tracks.
   * Set up a method call track on the 'grabbed' animation. Tie it to the animation player and set it up to play the next animation with a function call on the last frame.
   * Set up a method call track on the animation that follows the 'grabbed' animation. On the first frame, call the AnimLocker's release_lock_with_parent_node function.
+  * Call the AnimLocker from the 'grabber'/parent node like so:
+    * anim_locker.start_lock_with_child_node(_node, _parent_anim, _child_anim)
+    * The first arg is the child node which will lock with the node this is called from.
+    * The second arg is the animation the 'grabber'/parent node will play.
+    * The third arg is the animation the 'grabbed'/child node will play, and be released from when this animation finishes.
